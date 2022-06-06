@@ -2,20 +2,23 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Status;
 import com.example.demo.service.OrderService;
+import com.example.demo.serviceImpl.OrderServiveImpl;
 
 public class OrderController {
 	
-	public Status placeOrder() {
+	public Status getOrderStatus() {
+		OrderService orderService=new OrderServiveImpl();
 		Status status=null;
 		try {
-			status = OrderService.getOrderStatus();
+			status = orderService.getOrderStatus();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		
 		return status;
 	}
+	
 
 }
